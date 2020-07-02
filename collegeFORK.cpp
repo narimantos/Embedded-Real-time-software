@@ -15,7 +15,7 @@ a++; g++;
 pid = fork();
 printf("Welkom %d %d\n",a,g);
 a++; g++;
-pid = fork();
-printf("bij IoT deel 2 %d %d\n",a,g);
-return 0;  // HIER ZIT DE KEK ; LOL AHAHAH ROFL ; HIJ PRINT NOG NA DE RETURN HAHAHHAHAHHHAH
+pid = fork(); // er zijn al 2 processen, dus die worden verdubbeld.
+printf("bij IoT deel II %d %d\n",a,g); // krijgen dit 4 x te zien.  (2 x 2)
+return 0;  // SOMS PRINT DE PROCES NOG NA DE RETURN omdat de slave de return 0 geeft maar de master moet nog eindigen
 }
