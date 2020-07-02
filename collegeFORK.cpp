@@ -12,7 +12,7 @@ pid_t pid;
 int a=1;
 printf("Een goede dag %d %d\n",a,g);
 a++; g++;
-pid = fork();
+pid = fork(); // FORK() is alleen in een LINUX OS te gebruiken
 printf("Welkom %d %d\n",a,g);
 a++; g++;
 pid = fork(); // er zijn al 2 processen, dus die worden verdubbeld.
