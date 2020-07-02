@@ -7,7 +7,7 @@ cout << s<<endl;
 }
 int main(){
 thread t1(print_message,"hello");
-thread t2(print_message,"word");
+thread t2(print_message,"world");
 t1.join();
 t2.join();
 return 0;
