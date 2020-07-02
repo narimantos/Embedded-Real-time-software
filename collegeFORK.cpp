@@ -17,5 +17,5 @@ printf("Welkom %d %d\n",a,g);
 a++; g++;
 pid = fork();
 printf("bij IoT deel 2 %d %d\n",a,g);
-return 0;
+return 0;  // HIER ZIT DE KEK ; LOL AHAHAH ROFL ; HIJ PRINT NOG NA DE RETURN HAHAHHAHAHHHAH
 }
