@@ -1,6 +1,7 @@
 #include <future>
 #include <vector>
 #include <iostream>
+#include <thread>
 using namespace std::chrono;
 using namespace std;
 
@@ -14,23 +15,23 @@ int som(const vector<int> &v)
 
 int main()
 {
-
-    // Time taken by functions: 121469 microseconds 
-
+    // Time taken by functions: 85724 microseconds
+    int x, y;
     vector<int> v1(10000000, 1);
-    vector<int> v2(5000000, 2);
-    vector<int> v3(5000000, 4);
-
+    
     auto start = high_resolution_clock::now(); // start clock
 
-    auto s1 = async(launch::async, &som, ref(v1));
-    auto s2 = async(launch::deferred, &som, ref(v2));
-    auto s3 = async(launch::async, &som, ref(v3));
-    cout << "\n Totaal = " << s1.get() + s2.get() + s3.get() << "\n" << endl;
+    thread t1{[&]() { x = som(v1); }};
+    thread t2{[&]() { y = som(v1); }};
+    t1.join();
+    t2.join();
+    future<int> s1 = async(&som, ref(v1));
+    future<int> s2 = async(&som, ref(v1));
+    cout << "som=" << x + y << endl;
 
-    auto stop = high_resolution_clock::now(); // stop clock
+    auto stop = high_resolution_clock::now();                  // stop clock
     auto duration = duration_cast<microseconds>(stop - start); // calculate duration
     cout << "Time taken by functions: " << duration.count() << " microseconds" << endl; // output duration
-    
+
     return 0;
 }

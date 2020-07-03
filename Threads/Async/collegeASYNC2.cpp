@@ -15,7 +15,7 @@ int som(const vector<int> &v)
 
 int main()
 {
-        // Totale duur  83323 microseconds
+        // Time taken by functions: 83323 microseconds
     vector<int> v1(10000000, 1);
     vector<int> v2(5000000, 2);
     vector<int> v3(5000000, 4);
